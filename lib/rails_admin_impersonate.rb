@@ -27,6 +27,7 @@ module RailsAdmin
 
         register_instance_option :controller do
           Proc.new do
+            session[:is_impersonating] = "1"
             sign_in @object
             redirect_to "/"
           end
